@@ -1,52 +1,84 @@
 {
-  "name": "ionic-hello-world",
-  "author": "Ionic Framework",
-  "homepage": "http://ionicframework.com/",
-  "private": true,
+  "name": "react-google-maps-loader",
+  "version": "4.2.1",
+  "author": {
+    "name": "Cédric Delpoux",
+    "email": "xuopled@gmail.com"
+  },
+  "description": "React component to use google maps services into your react applications using a render prop",
+  "files": [
+    "css",
+    "es",
+    "lib",
+    "umd"
+  ],
+  "homepage": "https://github.com/xuopled/react-google-maps-loader#readme",
+  "keywords": [
+    "react",
+    "google",
+    "maps",
+    "googlemaps",
+    "loader",
+    "decorator"
+  ],
+  "license": "MIT",
+  "main": "lib/index.js",
+  "module": "es/index.js",
+  "style": "umd/index.css",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/xuopled/react-google-maps-loader.git"
+  },
   "scripts": {
-    "clean": "ionic-app-scripts clean",
-    "build": "ionic-app-scripts build",
-    "ionic:build": "ionic-app-scripts build",
-    "ionic:serve": "ionic-app-scripts serve"
+    "build": "nwb build-react-component",
+    "clean": "nwb clean-module && nwb clean-demo",
+    "deploy": "gh-pages -d demo/dist",
+    "lint": "eslint src demo/src",
+    "precommit": "lint-staged",
+    "prepublish": "yarn run clean && yarn run build",
+    "start": "nwb serve-react-demo --port 1190",
+    "test": "jest --config jest.config.json --colors --no-cache",
+    "test:watch": "yarn test -- --watch"
   },
   "dependencies": {
-    "@angular/common": "4.0.0",
-    "@angular/compiler": "4.0.0",
-    "@angular/compiler-cli": "4.0.0",
-    "@angular/core": "4.0.0",
-    "@angular/forms": "4.0.0",
-    "@angular/http": "4.0.0",
-    "@angular/platform-browser": "4.0.0",
-    "@angular/platform-browser-dynamic": "4.0.0",
-    "@ionic-native/core": "3.4.2",
-    "@ionic-native/splash-screen": "3.4.2",
-    "@ionic-native/status-bar": "3.4.2",
-    "@ionic/storage": "2.0.1",
-    "ionic-angular": "3.0.1",
-    "ionicons": "3.0.0",
-    "rxjs": "5.1.1",
-    "sw-toolbox": "3.4.0",
-    "zone.js": "^0.8.4"
+    "google-map-react": "^1.0.4",
+    "little-loader": "~0.1.0",
+    "prop-types": "^15.6.0",
+    "query-string": "^5.0.1",
+    "react-geolocation": "^1.0.3",
+    "react-google-maps-loader": "^4.2.2",
+    "styled-components": "^2.1.2"
   },
   "devDependencies": {
-    "@ionic/app-scripts": "^3.1.10",
-    "typescript": "~2.2.1"
+    "babel-eslint": "^7.2.3",
+    "babel-jest": "^20.0.3",
+    "babel-plugin-transform-object-rest-spread": "^6.26.0",
+    "babel-preset-env": "^1.6.1",
+    "babel-preset-react": "^6.24.1",
+    "enzyme": "^2.9.1",
+    "eslint": "^4.5.0",
+    "eslint-config-prettier": "^2.3.0",
+    "eslint-loader": "^1.9.0",
+    "eslint-plugin-jest": "^20.0.3",
+    "eslint-plugin-prettier": "^2.1.2",
+    "eslint-plugin-react": "^7.3.0",
+    "gh-pages": "^1.0.0",
+    "html-loader": "^0.5.1",
+    "husky": "^0.14.3",
+    "jest": "^20.0.4",
+    "jest-css-modules": "^1.1.0",
+    "lint-staged": "^4.0.2",
+    "markdown-loader": "^2.0.1",
+    "nwb": "^0.18.0",
+    "prettier": "^1.5.3",
+    "react": "^15.6.0",
+    "react-demo-page": "^0.2.2",
+    "react-dom": "^15.6.0",
+    "react-google-map": "^3.1.1",
+    "react-test-renderer": "^15.6.1"
   },
-  "cordovaPlugins": [
-    "cordova-plugin-whitelist",
-    "cordova-plugin-console",
-    "ionic-plugin-keyboard",
-    "cordova-plugin-statusbar",
-    "cordova-plugin-device",
-    "cordova-plugin-splashscreen"
-  ],
-  "cordovaPlatforms": [
-    "ios",
-    {
-      "platform": "ios",
-      "version": "",
-      "locator": "ios"
-    }
-  ],
-  "description": "ionic3-googlemaps-directions: An Ionic project"
+  "peerDependencies": {
+    "react": "^15.0.0 || ^16.0.0",
+    "react-dom": "^15.0.0 || ^16.0.0"
+  }
 }
